@@ -1,32 +1,32 @@
 import React, { useState } from "react";
-import { IoMenu } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <nav className="bg-white px-2 sm:px-4 py-3 dark:bg-gray-800">
+      <nav className="bg-seba-100 px-2 sm:px-4 py-3">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <a href="/" className="flex items-center">
             <img
               src={require("../assets/images/yo.JPG")}
               className="rounded-full mr-3 h-10"
-              alt="Photo of Sebastian Martínez"
+              alt="Sebastian Martínez"
             />
-            <span className="self-center md:text-xl font-semibold dark:text-white text-clip">
+            <span className="self-center md:text-xl font-semibold text-clip text-white">
               Sebastian Martínez
             </span>
           </a>
           <button
             data-collapse-toggle="mobile-menu"
             type="button"
-            className="inline-flex items-center mx-5 p-1 text-sm text-gray-500 rounded-lg md:hidden"
+            className="inline-flex items-center mx-7 p-1 text-sm text-seba-500 rounded-lg md:hidden"
             aria-controls="mobile-menu"
             aria-expanded="false"
             onClick={() => setIsOpen(!isOpen)}
           >
             <span className="sr-only">Open main menu</span>
-            <div className="mx-auto">
+            <div className="">
               <span
                 aria-hidden="true"
                 className={`block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out ${
@@ -55,45 +55,52 @@ export default function Header() {
           >
             <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
               <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                  aria-current="page"
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-seba-200 md:bg-transparent md:text-seba-400 block py-2 pr-4 pl-3 text-seba-400 rounded md:p-0 font-semibold"
+                      : "block py-2 pr-4 pl-3 text-seba-300 rounded md:p-0 font-semibold"
+                  }
                 >
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                <NavLink
+                  to="/about-me"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-seba-200 md:bg-transparent md:text-seba-400 block py-2 pr-4 pl-3 text-seba-400 rounded md:p-0 font-semibold"
+                      : "block py-2 pr-4 pl-3 text-seba-300 rounded md:p-0 font-semibold"
+                  }
                 >
-                  About
-                </a>
+                  About Me
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                <NavLink
+                  to="/projects"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-seba-200 md:bg-transparent md:text-seba-400 block py-2 pr-4 pl-3 text-seba-400 rounded md:p-0 font-semibold"
+                      : "block py-2 pr-4 pl-3 text-seba-300 rounded md:p-0 font-semibold"
+                  }
                 >
-                  Services
-                </a>
+                  Projects
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                <NavLink
+                  to="/contact-me"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-seba-200 md:bg-transparent md:text-seba-400 block py-2 pr-4 pl-3 text-seba-400 rounded md:p-0 font-semibold"
+                      : "block py-2 pr-4 pl-3 text-seba-300 rounded md:p-0 font-semibold"
+                  }
                 >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Contact
-                </a>
+                  Contact Me
+                </NavLink>
               </li>
             </ul>
           </div>
